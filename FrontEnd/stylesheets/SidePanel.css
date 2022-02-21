@@ -1,0 +1,92 @@
+/* The sidepanel menu */
+.sidepanel {
+    height: 85%; /* Specify a height */
+    width: 0%; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 10%;
+    bottom: 20px;
+    left: 0;
+    background-color: rgba(0 ,114 ,255 , 0.5); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+
+}
+
+/* The sidepanel links */
+.sidepanel a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+    text-align:center;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+    color: #ff7f7f;
+}
+
+.sidepanel ul {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+.sidepanel ul p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.sidepanel ul p span {
+    float: left;
+    color: #f9f9f9;
+    background-color: #4e00cc;
+    padding: 2px 5px;
+    text-align: center;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    margin-right:5px;
+
+}
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgba(1,1,1,0);
+    color: black;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+/* Subsections */
+#displaySettings{
+    display:none;
+}
+#constellationInfo{
+    display:block;
+}
+#runMemo{
+    color:black;
+    padding:5px;
+}
+#satInfo{
+    display:none;
+}

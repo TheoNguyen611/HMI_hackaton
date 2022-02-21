@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--*********** HEADER ****************** -->
+<head>
+    <!-- Use correct character set. -->
+    <meta charset="utf-8">
+    <!-- Tell IE to use the latest, best version. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <!-- Make the app on mobile take up the full browser screen and disable user scaling. -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>HMI PIE</title>
+    <!-- The Cesium library. -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.77/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.77/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <!-- Stylesheet of the app. -->
+    <link rel="stylesheet" href="FrontEnd/stylesheets/index.css" media="screen">
+
+    <link rel="stylesheet" href="FrontEnd/stylesheets/MainMenu.css" media="screen">
+    <link rel="stylesheet" href="FrontEnd/stylesheets/SidePanel.css" media="screen">
+    <link rel="stylesheet" href="FrontEnd/stylesheets/Accordion.css" media="screen">
+</head>
+
+<!--*********** BODY ****************** -->
+<body>
+<!----------------MAIN TOP MENU -------------- -->
+
+<div class="container">
+    <div class="dropdownMenu">
+        <ul id="menuList">
+            <li><button class="openbtn" onclick="openNav(0.2,'rgba(16,20,64,0.6)')">&#9776; </button></li>
+            <li>
+                <center><img src="FrontEnd/Images/logo.png" width="30"></center>
+            </li>
+            <li>
+                <div style="color: #333;">PIE CONSTELLATION</div>
+            </li>
+
+            <li id="hiddenLi"> hidden Menu
+            </li>
+            <li id="bestConstellationLi"> best constellation
+            </li>
+            <li id="randomLi"> first random individual
+                <div id="firstRandomBox">
+                </div>
+            </li>
+            <li id="hiddenLi"> hidden Menu
+            </li>
+            <li> Select a Use Case
+                <div id="useCaseBox">
+                </div>
+            </li>
+
+            <li id="runLi"> Select a run
+                <div id="runBox">
+                </div>
+            </li>
+
+            <li id="logLi"> Select a generation
+                <div id="logsBox">
+                </div>
+            </li>
+
+
+    </div>
+</div>
+
+
+
+<!----------------CESIUM CONTAINER-------------- -->
+
+<!-- A container for the Cesium Viewer to live in. -->
+<div id="cesiumContainer"></div>
+
+<!----------------RIGHT SIDE PANEL -------------- -->
+
+
+<div id="mySidepanel" class="sidepanel">
+
+    <!--close button-->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <!--MENUS-->
+
+
+    <!--for constellation infos-->
+    <div id="constellationInfo">
+        <a href="#">Constellation </a>
+        <ul id="displayInfo"></ul>
+    </div>
+
+    <!--for constellation infos-->
+    <div id="satInfo">
+        <a href="#">Satellite </a>
+        <ul id="displaySatInfo"></ul>
+    </div>
+
+
+    <!--for the display settings-->
+    <div id="displaySettings">
+        <a href="#">Settings</a>
+
+        <!-- accordion menu -->
+        <button class="accordion"><span>+</span> Trajectory</button>
+
+        <!-- Trajectory settings-->
+        <div class="panel">
+            <p><input type="checkbox" id="displaySatTraj">Display/Hide all</input></p>
+            <p>
+                <label for="sats">1 sat only:</label>
+                <select name="sats" id="sats">
+                </select>
+            </p>
+        </div>
+
+        <!-- Footprint settings-->
+        <button class="accordion"><span>+</span> Footprint</button>
+        <div class="panel">
+            <p><input type="checkbox" id="displayFootprints">Display/Hide all</input></p>
+            <p>
+                <label for="footprints">1 sat only:</label>
+                <select name="footprints" id="footprints">
+                </select>
+            </p>
+        </div>
+
+        <!-- FOV settings-->
+        <button class="accordion"><span>+</span> FOV</button>
+        <div class="panel">
+            <p><input type="checkbox" id="displayFOV">Display/Hide all</input></p>
+            <p>
+                <label for="FOV">1 sat only:</label>
+                <select name="FOV" id="FOV">
+                </select>
+            </p>
+        </div>
+    </div>
+    <!--for the graph of fitness across generation-->
+    <div id="runInformation">
+        <a href="#">Run </a>
+        <canvas height="160%" id="myChart"></canvas>
+        <div id="runMemo"></div>
+        <div id="curveSelection"></div>
+
+    </div>
+</div>
+
+
+
+
+<!-- POPUP FOR THE CONNECTION TEST-->
+<div id="testPopup" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p> FrontEnd successfully received connection test</p>
+    </div>
+</div>
+
+
+<!--******************* FRONT END SCRIPTS ***********************-->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+<script src="FrontEnd/Parameters.js"></script>
+<script src="FrontEnd/Accordion.js"></script>
+<script src="FrontEnd/MenuHandler.js"></script>
+
+<script src="FrontEnd/Popup.js"></script>
+<script src="FrontEnd/App.js"></script>
+
+
+</body>
+</html>
